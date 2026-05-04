@@ -226,7 +226,6 @@ export async function execute(ctx: AdapterExecutionContext): Promise<AdapterExec
   if (model) args.push("--model", model);
   if (sessionId) {
     args.push("--session", sessionId);
-    args.push("--continue");
   }
   args.push(...extraArgs);
 
