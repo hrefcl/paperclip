@@ -164,7 +164,11 @@ export function getAdapterDisplay(type: string): AdapterDisplayInfo {
       ...known,
       description: getAdapterDescription(type, known.description),
       disabledLabel: known.disabledLabel
-        ? getAdapterDescription("adapters.adapterDisplayRegistry.disabledLabel." + type, known.disabledLabel)
+        ? (() => {
+            const key = `adapters.adapterDisplayRegistry.disabledLabel.${type}`;
+            const translated = t(key);
+            return translated === key ? known.disabledLabel : translated;
+          })()
         : undefined,
     };
   }

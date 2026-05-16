@@ -233,7 +233,7 @@ export function SidebarAccountMenu({
                   {t("account.language")}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {i18n.languages.map((code) => {
+                  {Object.keys(i18n.store?.data ?? {}).map((code) => {
                     const active = i18n.language?.startsWith(code);
                     return (
                       <button
